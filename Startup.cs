@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KurssiBackend.Models;
 
 namespace KurssiBackend
 {
@@ -27,8 +28,16 @@ namespace KurssiBackend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+        
+            //____________TIETOKANTAMOODI_______________________________________
+            services.AddSingleton<IKurssitRepository, SQLKurssitRepository>();
 
-            // ------------- Cors m‰‰ritys ------------
+            // ___________ TESTIMOODI_____________________________________________
+            //services.AddTransient<IKurssitRepository, MockKurssitRepository>();
+            //___________________________________________________________________
+
+
+            // ________ Cors m‰‰ritys ____________________________
 
             services.AddCors(options =>
             {

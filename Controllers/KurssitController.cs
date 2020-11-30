@@ -10,24 +10,31 @@ namespace KurssiBackend.Controllers
     [ApiController]
     public class KurssitController : ControllerBase
     {
-        private KurssiDBContext db = new KurssiDBContext();
+
+        private readonly IKurssitRepository _kurssitRepository;
+
+        public KurssitController(IKurssitRepository kurssitRepository)
+        {
+            _kurssitRepository = kurssitRepository;
+        }
 
         // Hae kaikki kurssit
         [HttpGet]
         [Route("")]
-        public List<Kurssit> HaeKurssit()
+        public List<Kurssit> GetAll()
         {
-            try
+            var kurssit = _kurssitRepository.HaeKurssit().ToList();
+            if (kurssit != null)
             {
-                List<Kurssit> kurssit = db.Kurssit.ToList();
                 return kurssit;
             }
-            finally
+            else
             {
-                db.Dispose();
+                return null;
             }
         }
-
+    
+        /*
 
         // Haku id:llä
         [HttpGet]
@@ -49,7 +56,7 @@ namespace KurssiBackend.Controllers
         // Uuden luonti
         [HttpPost]
         [Route("")]
-        public ActionResult LuoKurssi([FromBody] Kurssit kurssi)
+        public ActionResult Create([FromBody] Kurssit kurssi)
         {
             try
             {
@@ -71,7 +78,7 @@ namespace KurssiBackend.Controllers
         //Poisto Id:llä
         [HttpDelete]
         [Route("{id}")]
-        public ActionResult PoistaKurssi(int id)
+        public ActionResult Delete(int id)
         {
             try
             {
@@ -96,6 +103,7 @@ namespace KurssiBackend.Controllers
                 db.Dispose();
             }
         }
+        */
         
     }
 }
