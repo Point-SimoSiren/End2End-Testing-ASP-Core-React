@@ -33,78 +33,55 @@ namespace KurssiBackend.Controllers
                 return null;
             }
         }
-    
-        /*
 
         // Haku id:llä
         [HttpGet]
         [Route("{id}")]
         public Kurssit GetOneById(int id)
         {
-            try
+            var kurssi = _kurssitRepository.HaeYksiKurssi(id);
+            if (kurssi != null)
             {
-                Kurssit kurssi = db.Kurssit.Find(id);
                 return kurssi;
             }
-            finally
+            else
             {
-                db.Dispose();
+                return null;
             }
         }
 
-       
         // Uuden luonti
         [HttpPost]
         [Route("")]
-        public ActionResult Create([FromBody] Kurssit kurssi)
+        public IActionResult Create([FromBody] Kurssit kurssi)
         {
-            try
+            if (ModelState.IsValid)
             {
-                db.Kurssit.Add(kurssi);
-                db.SaveChanges();
-                return Ok(kurssi.KurssiId);
+                Kurssit uusiKurssi = _kurssitRepository.LisaaKurssi(kurssi);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex);
-            }
-            finally
-            {
-                db.Dispose();
-            }
+            return Ok(kurssi);
         }
+        
 
-   
         //Poisto Id:llä
         [HttpDelete]
         [Route("{id}")]
-        public ActionResult Delete(int id)
+        public IActionResult Delete(int id)
         {
-            try
             {
-                Kurssit kurssi = db.Kurssit.Find(id);
+                var kurssi = _kurssitRepository.PoistaKurssi(id);
                 if (kurssi != null)
                 {
-                    db.Kurssit.Remove(kurssi);
-                    db.SaveChanges();
-                    return Ok("Kurssi id:llä " + id + " poistettiin");
+                    return Ok(kurssi);
                 }
                 else
                 {
-                    return NotFound("Kurssia id:llä" + id + " ei löydy");
+                    return NotFound(id);
                 }
             }
-            catch
-            {
-                return BadRequest();
-            }
-            finally
-            {
-                db.Dispose();
-            }
+
         }
-        */
-        
+
     }
 }
 

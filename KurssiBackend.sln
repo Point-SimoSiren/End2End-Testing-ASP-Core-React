@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30709.132
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurssiBackend", "KurssiBackend.csproj", "{1C1565DE-2FDD-43B8-8031-67BA3C410FBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KurssiBackend", "KurssiBackend.csproj", "{1C1565DE-2FDD-43B8-8031-67BA3C410FBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestiProjekti", "..\XUnitTestiProjekti\XUnitTestiProjekti.csproj", "{83A64AEC-1028-4168-8638-4CB038E16175}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1C1565DE-2FDD-43B8-8031-67BA3C410FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C1565DE-2FDD-43B8-8031-67BA3C410FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C1565DE-2FDD-43B8-8031-67BA3C410FBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83A64AEC-1028-4168-8638-4CB038E16175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83A64AEC-1028-4168-8638-4CB038E16175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83A64AEC-1028-4168-8638-4CB038E16175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83A64AEC-1028-4168-8638-4CB038E16175}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
