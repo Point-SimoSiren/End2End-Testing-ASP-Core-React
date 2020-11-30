@@ -30,10 +30,10 @@ namespace KurssiBackend
             services.AddControllers();
         
             //____________TIETOKANTAMOODI_______________________________________
-            services.AddSingleton<IKurssitRepository, SQLKurssitRepository>();
+            //services.AddScoped<IKurssitRepository, SQLKurssitRepository>();
 
             // ___________ TESTIMOODI_____________________________________________
-            //services.AddTransient<IKurssitRepository, MockKurssitRepository>();
+            services.AddTransient<IKurssitRepository, MockKurssitRepository>();
             //___________________________________________________________________
 
 

@@ -9,10 +9,7 @@ namespace KurssiBackend.Models
     {
         private readonly KurssiDBContext db = new KurssiDBContext();
 
-        public SQLKurssitRepository(KurssiDBContext db)
-        {
-            this.db = db;
-        }
+        
 
         public IEnumerable<Kurssit> HaeKurssit()
         {
