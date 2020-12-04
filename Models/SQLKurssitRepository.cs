@@ -9,8 +9,6 @@ namespace KurssiBackend.Models
     {
         private readonly KurssiDBContext db = new KurssiDBContext();
 
-        
-
         public IEnumerable<Kurssit> HaeKurssit()
         {
             List<Kurssit> kurssit = db.Kurssit.ToList();
@@ -36,6 +34,7 @@ namespace KurssiBackend.Models
             if (kurssi != null)
             {
                 db.Kurssit.Remove(kurssi);
+                db.SaveChanges();
             }
             return kurssi;
         }
